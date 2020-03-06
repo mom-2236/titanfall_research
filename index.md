@@ -2,6 +2,7 @@
 title: Splash Page
 layout: template
 filename: index
+theme: jekyll-theme-midnight
 ---
 ## MOM-2236's Titanfall information hub
 

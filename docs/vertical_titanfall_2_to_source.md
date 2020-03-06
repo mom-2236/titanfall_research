@@ -1,6 +1,7 @@
 ---
 title: Vertical's Titanfall 2 to Source Guide
 layout: template
+theme: jekyll-theme-midnight
 filename: vertical_titanfall_2_to_source
 ---
 # This guide was recovered from a now deleted Facepunch forum post.

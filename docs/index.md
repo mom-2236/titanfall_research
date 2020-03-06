@@ -1,5 +1,6 @@
 ---
 title: Splash Page
+theme: jekyll-theme-midnight
 layout: template
 filename: index
 ---
