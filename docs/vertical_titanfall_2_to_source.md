@@ -1,3 +1,8 @@
+---
+title: Vertical's Titanfall 2 to Source Guide
+layout: template
+filename: vertical_titanfall_2_to_source
+---
 # This guide was recovered from a now deleted Facepunch forum post.
 The source of this guide would be located [here](https://web.archive.org/web/20190217012514/https://forum.facepunch.com/f/fbx/bskox/Tutorial-Titanfall-2-to-Source-WARNING-LONG-OP-LOTS-OF-IMAGES/1/ ), however it was removed prior to being archived. While I could recover the text for the guide, it was unformatted and needed to be reformatted from scratch. Original credit goes to Facepunch user **Vertical**. I take no credit for the content of this page, other than the recovery of the text, editing text, formatting to make it readable, updating links and adding that Cra0kol's VPK tool actually *does* have a v3.4 not linked on the website.
 
