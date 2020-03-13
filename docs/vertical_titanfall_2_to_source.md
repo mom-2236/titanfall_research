@@ -72,7 +72,7 @@ I DO NOT own IP rights to Titanfall 2. Titanfall, Titanfall 2, and all assets ar
 ## [SECTION 1] Acquiring rigged models
 **STEP 1.**) Open Cra0's .vpk tool.
 
-![CraOkola's Titanfall VPK Tool](https://web.archive.org/web/https://files.facepunch.com/forum/upload/109991/16e87745-0bae-40af-837f-c382056d22d2/image.png).
+![CraOkola's Titanfall VPK Tool](https://web.archive.org/web/https://files.facepunch.com/forum/upload/109991/16e87745-0bae-40af-837f-c382056d22d2/image.png)
 
 **STEP 2.**) Navigate to and open the .vpk of your choice. Choose a model, and extract wherever you'd like. If you haven't changed the game's install path, you'll find all the `.vpk`'s in `C:\Program Files (x86)\Origin Games\Titanfall2\vpk`. You might as well extract the entire models folder if you plan on porting more than one model. Do note that the majority of model textures are NOT stored in `.vpk`'s.
 
@@ -82,7 +82,7 @@ Important note: Most multiplayer content is stored in `englishclient_mp_common.b
 
 > *Editor's note - The exact language depends on what you have installed. If you don't have "englishclient_" `_dir.vpk`'s, then use whatever other language is present. You're looking for a `_dir.vpk` file regardless of the language, for the `mp_common` set.
 
-**STEP 3.**) Open Crowbar, and decompile your model into its component .smds. Unlike other Source games, Titanfall 2 .mdl files contain all necessary mesh and model information. For the sake of this tutorial, we'll be porting the model `robot_stalker.mdl`. Also check my workshop for other ports to base your work off of, if you so desire. Most models consist of a handful of meshes. Important note: Despite seemingly decompiling them, Crowbar 0.56 does not support Titanfall 2 animations, which are stored in `.mdl` files suffixed: `_core`, `_workspace`, _embark, etc. This DOES include ref animations, which can be very troublesome. More on that in Section 3.
+**STEP 3.**) Open Crowbar, and decompile your model into its component .smds. Unlike other Source games, Titanfall 2 .mdl files contain all necessary mesh and model information. For the sake of this tutorial, we'll be porting the model `robot_stalker.mdl`. Also check my workshop for other ports to base your work off of, if you so desire. Most models consist of a handful of meshes. Important note: Despite seemingly decompiling them, Crowbar 0.56 does not support Titanfall 2 animations, which are stored in `.mdl` files suffixed: `_core`, `_workspace`, `_embark`, etc. This DOES include ref animations, which can be very troublesome. More on that in Section 3.
 
 ![Stalker models collected in a directory](https://web.archive.org/web/https://files.facepunch.com/forum/upload/109991/095253a3-1d9c-44b7-a1d3-0fc4f28626dd/image.png)
 
