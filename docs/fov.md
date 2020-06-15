@@ -37,6 +37,7 @@ We're going to start by extracting the VPK for `mp_common`. VPKs are located in 
 Once you have the file open, select the folder icon second from the right on the icon toolbar (Extract All). Extract the entire VPK to a directory that doesn't contain anything. It should be on a hard drive that has around 30GB of free space, as the extraction will decompress files that are compressed in the VPKs. The extraction process can take some time - there are a lot of files.
 
 ![Extract All](/titanfall_research/assets/mom-2236/screenshots/fov/extract-all.png)
+
 *The option to Extract all.*
 
 ## Preventing errors
@@ -77,6 +78,7 @@ Note that the `training` files are likely used only for training; `pilot_female_
 Weapon model FOV is independent of your actual vision - it changes how the weapon on screen is rendered. Extremely high fields of view will cause parts of the weapon not intended to be seen to render on screen. You may choose to increase the weapon model FOV even if you prefer to play at the stock cap of 90° FOV.
 
 ![Example of 120° Pilot FOV with 84° Weapon FOV](/titanfall_research/assets/mom-2236/screenshots/fov/120-84-r101c.png)
+
 *An example of 120° Pilot FOV, with the Weapon FOV increased to 84°*
 
 ## <a name="Backup"></a>Backing up the old VPKs
@@ -88,6 +90,7 @@ In case something goes wrong, I suggest keeping the old VPKs. You'll need to mov
 To repack the VPK with the changes you've made your changes, select the icon furthest to the right in the icon toolbar in the VPK tool. To be honest, the folder picker for the VPK tool sucks, but there's a work around for that. You can either press the Browse button and manually track down the folder you extracted the VPK to, *or* you can just grab a random folder for both of them to get the tool to accept that the two folders have been picked, then type in the location of the folder manually. Set the VPKFileName to the name of the old `_dir` file, up to `pak000`. Do not enter `_000` or anything after it - that will be named by the VPK Tool on it's own.
 
 ![Example of proper repack setup window](/titanfall_research/assets/mom-2236/screenshots/fov/repack.png)
+
 *How your repack window will look when properly setup. Compression is optional.*
 
 Compression is used in Respawn's VPKs; if you don't mind waiting, I would suggest selecting Compression when packing a new VPK with the VPK Tool. Once you have the repacked VPK completed, you can place the new `client_mp_common.bsp.pak000_000.vpk` and language specific `client_mp_common.bsp.pak000_dir.vpk` file into the `vpk` directory in the Titanfall install, and launch the game.
