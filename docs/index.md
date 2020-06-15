@@ -35,3 +35,5 @@ Placeholder
 -->
 
 More pages will be added when what I do has a purpose in being documented and published.
+
+*The source for this website is located [here](https://github.com/mom-2236/titanfall_research).*

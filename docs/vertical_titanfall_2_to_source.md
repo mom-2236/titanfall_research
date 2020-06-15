@@ -51,10 +51,10 @@ This guide does not cover porting to Garry's Mod per se, although it's pretty pa
 > *Editor's note - [Paint.NET](https://www.getpaint.net/download.html) has a [VTF plugin](http://nemesis.thewavelength.net/files/files/pdnvtfplugin111.zip) as well - Paint.NET supports importing DDS files too, should you ever choose to use them. [VTFEdit](http://nemesis.thewavelength.net/files/files/vtfedit133.zip) works just as well too when it comes to VTFs, as it's name would imply. It does not support DDS files, however. GIMP requires an [addon](https://code.google.com/archive/p/gimp-dds/downloads) to open DDS files. You will require that addon if you choose to use NinjaRipper, or export from Intel GPA to DDS.*
 
 - [Crowbar - For decompiling v53 .mdls and recompiling later.](https://github.com/ZeqMacaw/Crowbar/releases/)
-- [Cra0kalo's Titanfall .vpk Tool](/titanfall_research/storage/cra0kalo/Titanfall_VPKTool3.4_Portable.zip)
+- [Cra0kalo's Titanfall .vpk Tool](https://github.com/mom-2236/titanfall_research/raw/master/storage/cra0kalo/Titanfall_VPKTool3.4_Portable.zip)
 
 > *Editor's note - Cra0kalo's website no longer hosts this tool for some reason - both v3.3 and v3.4 produce file not found errors on my end in Waterfox. Luckily I had backups. I've mirrored v3.4 in my repo, which was newer than the version claimed to be the latest in the original post. v3.4 does not appear to have a changelog on CraOkalo's website, ~~so I'm not sure what has changed between the two.~~ It appears that the difference is the integration of the BSPInspector tool. No, it's not a map viewer.*
-> *Version 3.4 is linked above, but 3.3, should it be required for anything, can be downloaded [here](/titanfall_research/storage/cra0kalo/Titanfall_VPKTool3.3_Portable.zip).*
+> *Version 3.4 is linked above, but 3.3, should it be required for anything, can be downloaded [here](https://github.com/mom-2236/titanfall_research/raw/master/storage/cra0kalo/Titanfall_VPKTool3.3_Portable.zip).*
 
 - [Intel GPA](https://software.intel.com/en-us/gpa)
 
