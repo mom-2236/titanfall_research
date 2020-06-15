@@ -35,5 +35,3 @@ Placeholder
 -->
 
 More pages will be added when what I do has a purpose in being documented and published.
-
-This is the docs file.
