@@ -1,17 +1,25 @@
 ---
 title: Vertical's Titanfall 2 to Source Guide
-theme: jekyll-theme-midnight
 filename: vertical_titanfall_2_to_source
 ---
 
+<!--
+I am aware that this breaks a few GitHub Markdown conventions.
+But this is an archive document, I tried to keep it like the original.
+Or as close as I could get, anyway. I have no idea what the OP looked like.
+Only the contents.
 
-# This guide was recovered from a now deleted Facepunch forum post.
-The source of this guide would be located [here](https://web.archive.org/web/20190217012514/https://forum.facepunch.com/f/fbx/bskox/Tutorial-Titanfall-2-to-Source-WARNING-LONG-OP-LOTS-OF-IMAGES/1/ ), however it was removed prior to being archived. While I could recover the text for the guide, it was unformatted and needed to be reformatted from scratch. Original credit goes to Facepunch user **Vertical**. I take no credit for the content of this page, other than the recovery of the text, editing text, formatting to make it readable, updating links and adding that Cra0kol's VPK tool actually *does* have a v3.4 not linked on the website.
+I misspelled Cra0kalo's name a few times in the initial commit... oops.
+-->
 
-----
+## This guide was recovered from a now deleted Facepunch forum post
 
-# [Tutorial] Titanfall 2 to Source (WARNING: LONG OP + LOTS OF IMAGES)
- 
+The source of this guide would be located [here](https://web.archive.org/web/20190217012514/https://forum.facepunch.com/f/fbx/bskox/Tutorial-Titanfall-2-to-Source-WARNING-LONG-OP-LOTS-OF-IMAGES/1/ ), however it was removed prior to being archived. While I could recover the text for the guide, it was unformatted and needed to be reformatted from scratch. Original credit goes to Facepunch user **Vertical**. I take no credit for the content of this page, other than the recovery of the text, editing text, formatting to make it readable, updating links and adding that Cra0kalo's VPK tool actually *does* have a v3.4 that's not linked on the website via a blog post. Don't bug me (MOM-2236, the editor of this page) about updating this guide - when I get to it, there will be an entirely new guide, including all the new stuff that's become available since this guide was originally written on Facepunch.
+
+---
+
+# <a name="Tutorial"></a>[Tutorial] Titanfall 2 to Source (WARNING: LONG OP + LOTS OF IMAGES)
+
 This guide will cover porting Titanfall 2 models to SFM and Source on the whole. A lot of effort went into creating this guide, but that doesn't mean it's perfect. Still, it couldn't be as good as it is without the help of:
 
 - **BlueFlytrap** for figuring out most of the workarounds that I used to get around Source's limitations.
@@ -23,72 +31,96 @@ This guide will cover porting Titanfall 2 models to SFM and Source on the whole.
 
 This guide does not cover porting to Garry's Mod per se, although it's pretty par the course for any Source game. You can post renders and workshop links to what you've done here, if you want.
 
-### Requirements:
+---
+
+## Requirements
+
 - 3ds Max, preferably 2014 or above. I don't use Blender, so you're on your own there.
 - [Game Zombie's .smd plugin](https://knockout.chat/thread/806/1) Batch Import/Export script by Jos Balcaen Titanfall 2 - Try and guess why.
 
-> *Editor's note - [Blender](https://www.blender.org/download/) has an addon called [Blender Source Tools](http://steamreview.org/BlenderSourceTools/). It's a must if you're working with Source `.smd` models. You really don't need 3ds Max or Maya. Blender is free, and can be downloaded through Steam if you want it to update automatically. You will still need to download Blender Source Tools on your own, however. I find it strange that there is no Workshop for automatic updating of Blender addons.*
+> *Editor's note - [Blender](https://www.blender.org/download/) has an addon called [Blender Source Tools](http://steamreview.org/BlenderSourceTools/). It's a must if you're working with Source `.smd` models and `.qc` model groups. You really don't **need** 3ds Max or Maya. Blender is free, and can be downloaded through Steam if you want it to update automatically. You will still need to download Blender Source Tools on your own, however. I find it strange that there is no Workshop for automatic updating of Blender addons.*
 
 - Also, you flat out can't get textures if you're using the trial version.
 
 > *Editor's note - The game goes on sale for like $10CAD all the time, just buy it if you want the damn models. Alternatively if you really hate EA, get an empty reloadable debit card and start a free month trial of EA Access. That literally costs $0.*
 
 - A very rough, working knowledge of the source engine. Search Google for a guide, I won't go very in-depth here.
-- [GIMP 2.8](https://www.gimp.org/downloads/ ) for converting conventional images to .vtfs. (Adobe Photoshop is fine too. If all else fails, just use GIMP - it's free.)
+- [GIMP 2.8](https://www.gimp.org/downloads/ ) for converting conventional images to .vtfs. (Adobe PhotoShop is fine too. If all else fails, just use GIMP - it's free.)
 - [.vtf plugin for GIMP.](https://github.com/Artfunkel/gimp-vtf/releases)
 
 > *Editor's note - [Paint.NET](https://www.getpaint.net/download.html) has a [VTF plugin](http://nemesis.thewavelength.net/files/files/pdnvtfplugin111.zip) as well - Paint.NET supports importing DDS files too, should you ever choose to use them. [VTFEdit](http://nemesis.thewavelength.net/files/files/vtfedit133.zip) works just as well too when it comes to VTFs, as it's name would imply. It does not support DDS files, however. GIMP requires an [addon](https://code.google.com/archive/p/gimp-dds/downloads) to open DDS files. You will require that addon if you choose to use NinjaRipper, or export from Intel GPA to DDS.*
 
 - [Crowbar - For decompiling v53 .mdls and recompiling later.](https://github.com/ZeqMacaw/Crowbar/releases/)
-- [Cra0kalo's Titanfall .vpk Tool](https://github.com/mom-2236/titanfall_research/raw/master/storage/Titanfall_VPKTool3.4_Portable.zip)
+- [Cra0kalo's Titanfall .vpk Tool](/titanfall_research/storage/cra0kalo/Titanfall_VPKTool3.4_Portable.zip)
 
-> *Editor's note - Cra0kola's website no longer hosts this tool for some reason - both v3.3 and v3.4 produce file not found errors on my end in Waterfox. Luckily I had backups. I've mirrored v3.4 in my repo, which was newer than the version claimed to be the latest in the original post. v3.4 does not appear to have a changelog on CraOkola's website, so I'm not sure what has changed between the two.*
-> *Version 3.4 is linked above, but 3.3, should it be required, can be downloaded [here](https://github.com/mom-2236/titanfall_research/raw/master/storage/Titanfall_VPKTool3.3_Portable.zip).*
+> *Editor's note - Cra0kalo's website no longer hosts this tool for some reason - both v3.3 and v3.4 produce file not found errors on my end in Waterfox. Luckily I had backups. I've mirrored v3.4 in my repo, which was newer than the version claimed to be the latest in the original post. v3.4 does not appear to have a changelog on CraOkalo's website, ~~so I'm not sure what has changed between the two.~~ It appears that the difference is the integration of the BSPInspector tool. No, it's not a map viewer.*
+> *Version 3.4 is linked above, but 3.3, should it be required for anything, can be downloaded [here](/titanfall_research/storage/cra0kalo/Titanfall_VPKTool3.3_Portable.zip).*
 
 - [Intel GPA](https://software.intel.com/en-us/gpa)
 
-----
+---
 
-### Table of contents:
-**Section 0 - Copyright disclaimer shit.**
+## <a name="ToC"></a>Table of Contents
 
-**Section 1 - Acquiring rigged models.**
+<!--
+These hyperlinks don't work, it's infuriating.
+-->
 
-**Section 2 - Acquiring textures.**
+**[Section 0](#Section-0) - Copyright disclaimer shit.**
 
-**Section 3 - Preparing meshes.**
+**[Section 1](#Section-1) - Acquiring rigged models.**
 
-**Section 4 - Preparing textures.**
+**[Section 2](#Section-2) - Acquiring textures.**
 
-**Section 5 - Materials Method 1: Colored Specular** \*easier, generally recommended, but less accurate
+**[Section 3](#Section-3) - Preparing meshes.**
+
+**[Section 4](#Section-4) - Preparing textures.**
+
+**[Section 5](#Section-5) - Materials<!-- Method 1-->: Colored Specular**\*
+
+\*easier, generally recommended, but less accurate
+
+> *Editors's Note: There was originally a second method listed here in the ToC for Materials, but it was either never finished or not available in my backup text file. I've removed it.*
+
+<!--
+> *This was never actually added, from what I can tell. Should I even be keeping it?*
 
 **Section 6 - Materials Method 2: CustomHero [Coming soon]**
+-->
 
+---
 
+## <a name="Section-0"></a>[SECTION 0] Copyright Disclaimer
 
-## [SECTION 0] Copyright Disclaimer
-I DO NOT own IP rights to Titanfall 2. Titanfall, Titanfall 2, and all assets are property of Respawn Entertainment and EA. All assets in this tutorial are used without permission. If contacted and requested to do so, I will promptly remove this guide in it's entirety. I ask that all other readers observe and acknowledge the following, or stop reading the thread at once.
+I **DO NOT** own IP rights to Titanfall 2. Titanfall, Titanfall 2, and all assets are property of Respawn Entertainment and EA. All assets in this tutorial are used without permission. If contacted and requested to do so, I will promptly remove this guide in it's entirety. I ask that all other readers observe and acknowledge the following, or stop reading the thread at once.
 
-## [SECTION 1] Acquiring rigged models
-**STEP 1.**) Open Cra0's .vpk tool.
+> *Editor's Note: I suppose this goes for me, too. If requested, I will take this guide down, but I've uploaded it here, and edited it to be proper, for archival purposes.*
+
+---
+
+## <a name="Section-1"></a>[SECTION 1] Acquiring rigged models
+
+**STEP 1.**) Open Cra0kalo's .vpk tool.
 
 ![CraOkola's Titanfall VPK Tool](https://web.archive.org/web/https://files.facepunch.com/forum/upload/109991/16e87745-0bae-40af-837f-c382056d22d2/image.png)
 
-**STEP 2.**) Navigate to and open the .vpk of your choice. Choose a model, and extract wherever you'd like. If you haven't changed the game's install path, you'll find all the `.vpk`'s in `C:\Program Files (x86)\Origin Games\Titanfall2\vpk`. You might as well extract the entire models folder if you plan on porting more than one model. Do note that the majority of model textures are NOT stored in `.vpk`'s.
+**STEP 2.**) Navigate to and open the .vpk of your choice. Choose a model, and extract wherever you'd like. If you haven't changed the game's install path, you'll find all the `.vpk`s in `C:\Program Files (x86)\Origin Games\Titanfall2\vpk`. You might as well extract the entire models folder if you plan on porting more than one model. Do note that the majority of model textures are NOT stored in `.vpk`s.
 
-![Cra0kola's Titanfall VPK tool showing the model folder](https://web.archive.org/web/https://files.facepunch.com/forum/upload/109991/8fe6bb27-889c-424f-9815-95318a72bad9/image.png)
+![Cra0kalo's Titanfall VPK tool showing the model folder](https://web.archive.org/web/https://files.facepunch.com/forum/upload/109991/8fe6bb27-889c-424f-9815-95318a72bad9/image.png)
 
 Important note: Most multiplayer content is stored in `englishclient_mp_common.bsp.pak000_dir.vpk`.
 
-> *Editor's note - The exact language depends on what you have installed. If you don't have "englishclient_" `_dir.vpk`'s, then use whatever other language is present. You're looking for a `_dir.vpk` file regardless of the language, for the `mp_common` set.
+> *Editor's note - The exact language depends on what you have installed. If you don't have "englishclient_" `_dir.vpk`s, then use whatever other language is present. You're looking for a `_dir.vpk` file regardless of the language, for the `mp_common` set.
 
 **STEP 3.**) Open Crowbar, and decompile your model into its component .smds. Unlike other Source games, Titanfall 2 .mdl files contain all necessary mesh and model information. For the sake of this tutorial, we'll be porting the model `robot_stalker.mdl`. Also check my workshop for other ports to base your work off of, if you so desire. Most models consist of a handful of meshes. Important note: Despite seemingly decompiling them, Crowbar 0.56 does not support Titanfall 2 animations, which are stored in `.mdl` files suffixed: `_core`, `_workspace`, `_embark`, etc. This DOES include ref animations, which can be very troublesome. More on that in Section 3.
 
 ![Stalker models collected in a directory](https://web.archive.org/web/https://files.facepunch.com/forum/upload/109991/095253a3-1d9c-44b7-a1d3-0fc4f28626dd/image.png)
 
-These are the files you should be left with. You can ignore/delete the LOD `.smd`'s and `.qc` files if you have no use for them. Neither will be relevant to this tutorial. You now have your meshes! Congrats. Now you need materials. Just a warning, this part fucking sucks.
+These are the files you should be left with. You can ignore/delete the LOD `.smd`s and `.qc` files if you have no use for them. Neither will be relevant to this tutorial. You now have your meshes! Congrats. Now you need materials. Just a warning, this part fucking sucks.
 
-## [SECTION 2] Acquiring Textures
+---
+
+## <a name="Section-2"></a>[SECTION 2] Acquiring Textures
 
 **STEP 1.**) Open Intel GPA Graphics Monitor.
 
@@ -148,7 +180,8 @@ Tick "Entire Frame" at the top.
 
 ![Intel GPA texture list](https://web.archive.org/web/https://files.facepunch.com/forum/upload/109991/eec35293-38c5-42e1-8d5b-060253439c08/image.png)
 
-There will be 6 or so textures for each material, and 1 to 3 materials depending on your model. The stalker has three materials with all of the maps listed below. Important Note: For this tutorial, you will need the following: 
+There will be 6 or so textures for each material, and 1 to 3 materials depending on your model. The stalker has three materials with all of the maps listed below. Important Note: For this tutorial, you will need the following:
+
 - Albedo Normal map (yellow)
 - Roughness map (red)
 - Specularity/metalness map (typically greyscale, like any other spec map; may have muted versions of the basetexture's tones)
@@ -160,7 +193,9 @@ There will be 6 or so textures for each material, and 1 to 3 materials depending
 
 You have to do this for each texture. One by one. Oh also, they're unnamed. It sucks. If you wanna try using Ninja Ripper, go for it, but it doesn't detect all of the maps, nor all of the right colours in the albedo. So fucking finally, you've got your model's textures. Relax, take a break. You've been through a lot, and you're pretty much through with the worst of it. I'm not being facetious either, the rest of this is pretty simple.
 
-## [SECTION 3] Preparing Meshes
+---
+
+## <a name="Section-3"></a>[SECTION 3] Preparing Meshes
 
 In the case of the Stalker model, not much needs to be changed. However, with heavier duty models like Titans and shit, consider the following: The `.smd` format has limits on how many vertices it can contain. To get around this, you may need to divide the meshes into smaller chunks. This is the case with the Titans, whose cockpits I just compiled as separate bonemerge-able `.mdls`. Some bones are going to be in the wrong resting position/bindpose. The only way to fix this, that I know of, is to compile it as is and change the bone positions in SFM to a more natural/correct position, save that animation as a `.dmx`, and recompiling with that `.dmx` set as your reference sequence. There's not a more-graceful workaround, at least that I know of. Anyways, on with this part of the tutorial. You will be creating duplicate meshes for use with Source's coloured specular workaround. Don't worry, it's not as confusing as it sounds. Actually it might be, I wrote this section at like 6:00 AM. Sorry.
 
@@ -172,11 +207,13 @@ In the case of the Stalker model, not much needs to be changed. However, with he
 
 **STEP 3.**) Duplicate your meshes as clones. Rename them based on if you're using the CustomHero or Coloured Specular method. *Note: You're using the coloured specular method because I haven't updated this guide with CustomHero instructions yet. Also, I'd recommend naming your meshes something simple, like adding the suffix `_cs` to the coloured specular meshes, and `_col` to the meshes that will have your albedo texture applied. Ensure the correct materials are applied to the correct meshes, and you should be good to go.*
 
-> *Editor's note: No, I don't have the instructions for the CustomHero method either.*
+> *Editor's note: No, I don't have the instructions for the "CustomHero Method" either.*
 
 **STEP 4.**) Re-export, and you're done with the mesh preparation.
 
-## [SECTION 4] Preparing Textures
+---
+
+## <a name="Section-4"></a>[SECTION 4] Preparing Textures
 
 **STEP 1.**) Import your albedo, AO mask, and emissive mask into a single GIMP image. *Tip: If you want, you can store ALL of your textures in one `.xcf` via descriptive layer groups, rather than separate images.*
 
@@ -187,7 +224,7 @@ Like so.
 
 **STEP 3.**) Move your emissive mask layer above your AO mask layer, and set the blend mode of the emissive mask layer to "Addition." Merge all layers, and export as .vtf.
 
-> *Editor's note - You can also export as PNG and convert to VTF with a different VTF editor of choice.*
+> *Editor's note - You can also export as PNG and convert to VTF with a different VTF editor of choice; I'm not sure if there is a difference between XCF and PNG export, other than that XCF will be wildly larger.*
 
 ![GIMP Export](https://web.archive.org/web/https://files.facepunch.com/forum/upload/109991/b61ee40b-c9dc-4dbc-a3c0-40c99606fe74/image.png)
 
@@ -199,56 +236,64 @@ Like so. Important note: It's up to you to decide what compression flags you use
 
 **STEP 5.**) Import your specularity mask, and export it as .vtf. Your materials are now set up. Obviously, they need to go wherever your `.smds` are expecting them to be.
 
-## [SECTION 5] Materials Method 1: Colored Specular
+---
 
-While not all of the specular maps are colored, per se, model stacking is still necessary. There aren't going to be steps for this one, just examples of `.qc`'s and `.vmt`'s for you to roughly follow. The `.qc` is self explanatory, whereas `.vmt`'s are something that matter on a case by case basis; you'll just need to play around with the params.
+## <a name="Section-5"></a>[SECTION 5] Materials Method 1: Colored Specular
+
+While not all of the specular maps are colored, per se, model stacking is still necessary. There aren't going to be steps for this one, just examples of `.qc`s and `.vmt`s for you to roughly follow. The `.qc` is self explanatory, whereas `.vmt`s are something that matter on a case by case basis; you'll just need to play around with the params.
 
 **QC Sample** - (`robot_stalker.qc`)
 
-```
+```qc
 $upaxis y $scale 1 $modelname "robots/stalker/robot_stalker.mdl" $mostlyopaque $bodygroup "red_box" { studio "red_box.smd" blank } $model stalker_body_col "stalker_body_col.smd" $model stalker_legs_col "stalker_legs_col.smd" $model stalker_arms_col "stalker_arms_col.smd" $model stalker_body_cs "stalker_body_cs.smd" $model stalker_legs_cs "stalker_legs_cs.smd" $model stalker_arms_cs "stalker_arms_cs.smd"
 ```
 
 `$mostlyopaque` in particular is important for the workaround to actually work.
 
-Note that the colored specular meshes are referenced AFTER the albedo-textured meshes. If you're familiar with colored specular, you'll know why this is. If you're not, you'll figure it out when you get to the `.vmt` section. 
+Note that the colored specular meshes are referenced AFTER the albedo-textured meshes. If you're familiar with colored specular, you'll know why this is. If you're not, you'll figure it out when you get to the `.vmt` section.
 
-```
+<!--
+Tabs broke GitHub Markdown convention... I don't think VMTs use actual tabs though,
+but I don't remember how Crowbar exports QC files - spaces or actual tabs.
+VTFedit use two spaces instead of actual tabs or four-spaces-per-tab. It's very strange to me.
+-->
+
+```qc
 $texturegroup "skinfamilies" {
-	{ "rbt_stalker_upperbody_col" "rbt_stalker_lowerbody_col" "rbt_stalker_head_col" }
-	{ "rbt_stalker_upperbody_red_col" "rbt_stalker_lowerbody_red_col" "rbt_stalker_head_red_col" }
-	{ "rbt_stalker_upperbody_suicide_col" "rbt_stalker_lowerbody_suicide_col" "rbt_stalker_head_suicide_col" }
-	{ "rbt_stalker_upperbody_suicide_red_col" "rbt_stalker_lowerbody_suicide_red_col" "rbt_stalker_head_suicide_red_col" }
+    { "rbt_stalker_upperbody_col" "rbt_stalker_lowerbody_col" "rbt_stalker_head_col" }
+    { "rbt_stalker_upperbody_red_col" "rbt_stalker_lowerbody_red_col" "rbt_stalker_head_red_col" }
+    { "rbt_stalker_upperbody_suicide_col" "rbt_stalker_lowerbody_suicide_col" "rbt_stalker_head_suicide_col" }
+    { "rbt_stalker_upperbody_suicide_red_col" "rbt_stalker_lowerbody_suicide_red_col" "rbt_stalker_head_suicide_red_col" }
 }
 $cdmaterials "models/robots/stalker" $sequence idle "stalker_ref_new.dmx"  activity ACT_IDLE -1 loop fps 30
 ```
 
-> *Editor's note - I have no idea how this should be formatted, I'm just guessing by the brackets.*
+> *Editor's note - I'm not too familiar with QC files at the moment, I'm sort of guessing on the formatting here based on the bracket placement. I'll fix it later if I find out that it's wrong.*
 
 Yep, that's it. You'll probably want to add `$attachments` and more bodygroup options, of course, especially for the stalker in particular. But for instructional purposes, this `.qc` structure is fine. If you peeked inside the `.qc` generated by Crowbar, you'll notice a *bunch* of different unnecessary commands.
 
 **VMT Sample** - Colored Specular (`rbt_stalker_head.vmt`)
 
-```
+```vtf
 "VertexLitGeneric" {
-	"$basetexture" "models\robots\stalker\rbt_stalker_head_s"
-		// Note that this is the specularity texture, NOT the albedo
-	"$bumpmap" "models\robots\stalker\rbt_stalker_head_n"
-	"$color2" "[0.00 0.00 0.00]"
-	"$additive" "1.00"
-		// These two commands are what make this workaround work at all. If you've ever used additive for decals or something,
-		// it's just a derivative of $translucent, but it applies an albedotinted "additive" blend effect to anything behind it.
-		// Setting the $color2 to total black masks out everything except for the specular reflections.
-	"$phong" "1.00"
-	"$phongboost" "4.5334"
-		// This is up to your discretion - just depends on how intense you want the specular reflection to be.
-		// That's just a random decimal at the end, I didn't do any math or anything to come to that number in particular.
-	"$phongexponent" "5.00" //generally doesn't need to exceed about 15 or 20, that I've seen.
-	"$phongexponenttexture" "models/titans/buddy/phongexp_255"
-		// Literally just a 32x32 texture with only a pure green channel. For fully-masking albedotint.
-	"$phongfresnelranges" "[3.00 5.00 7.00]"
-		// These are kind of old ranges, but they should work for what you're using them for.
-	"$phongalbedotint" "1.00" //ALWAYS have this enabled for colored specular.
+    "$basetexture" "models\robots\stalker\rbt_stalker_head_s"
+        // Note that this is the specularity texture, NOT the albedo
+    "$bumpmap" "models\robots\stalker\rbt_stalker_head_n"
+    "$color2" "[0.00 0.00 0.00]"
+    "$additive" "1.00"
+        // These two commands are what make this workaround work at all. If you've ever used additive for decals or something,
+        // it's just a derivative of $translucent, but it applies an albedotinted "additive" blend effect to anything behind it.
+        // Setting the $color2 to total black masks out everything except for the specular reflections.
+    "$phong" "1.00"
+    "$phongboost" "4.5334"
+        // This is up to your discretion - just depends on how intense you want the specular reflection to be.
+        // That's just a random decimal at the end, I didn't do any math or anything to come to that number in particular.
+    "$phongexponent" "5.00" //generally doesn't need to exceed about 15 or 20, that I've seen.
+    "$phongexponenttexture" "models/titans/buddy/phongexp_255"
+        // Literally just a 32x32 texture with only a pure green channel. For fully-masking albedotint.
+    "$phongfresnelranges" "[3.00 5.00 7.00]"
+        // These are kind of old ranges, but they should work for what you're using them for.
+    "$phongalbedotint" "1.00" //ALWAYS have this enabled for colored specular.
 }
 ```
 
@@ -258,7 +303,7 @@ So yeah that's that xD
 
 Even though I never showed you the model or materials beforehand, this is the final result that I wound up with. I might clean this up when I'm less tired.
 
-> *Editor's note - Yeah I've done most of that for you. A few years too late.*
+> *Editor's note - I'm a few years too late to be cleaning this up, added that I'm not even the OP.*
 
 For now, You've got the most documentation anyone's ever done on Titanfall 2 shit. Post any questions down below as long as it isn't asking me where to download a tool that I linked above or why you're having trouble getting models out of your pirated version of the game.
 

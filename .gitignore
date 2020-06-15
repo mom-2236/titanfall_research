@@ -1,0 +1,10 @@
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+Gemfile
+Gemfile.lock
+Gemfile.ignore
+404.html
+package-lock.json
